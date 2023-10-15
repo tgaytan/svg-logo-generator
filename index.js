@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt');
 const { writeFile } = require('fs/promises');
+const generateSvg = require('./lib/generateSVG');
 
 inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt)
 
@@ -30,7 +31,5 @@ inquirer
         }
     ])
     .then(res => {
-        // console.log(JSON.stringify(res));
-        // console.log(typeof JSON.stringify(res));
-        writeFile('./examples/test.svg', JSON.stringify(res)).then(() => console.log("File created successfully"));
+        writeFile('./examples/test.svg', generateSvg(res)).then(() => console.log("File created successfully"));
     });
