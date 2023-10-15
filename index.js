@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt');
 const { writeFile } = require('fs/promises');
+const { Circle, Triangle, Rectangle } = require('');
 
 inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt)
 
