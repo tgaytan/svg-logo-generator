@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt');
+const { writeFile } = require('fs/promises');
 
 inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt)
 
@@ -27,4 +28,9 @@ inquirer
             message: 'What color do you want the shape to be?',
             name: 'shapeColor'
         }
-    ]);
+    ])
+    .then(res => {
+        // console.log(JSON.stringify(res));
+        // console.log(typeof JSON.stringify(res));
+        writeFile('./examples/test.svg', JSON.stringify(res)).then(() => console.log("File created successfully"));
+    });
