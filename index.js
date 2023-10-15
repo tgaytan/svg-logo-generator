@@ -21,7 +21,7 @@ inquirer
         {
             type: 'list',
             message: 'What shape do you want the logo to be?',
-            choices: ['triangle', 'circle', 'square'],
+            choices: ['triangle', 'circle', 'rectangle'],
             name: 'shape'
         },
         {
@@ -31,5 +31,5 @@ inquirer
         }
     ])
     .then(res => {
-        writeFile('./examples/test.svg', generateSvg(res)).then(() => console.log("File created successfully"));
+        writeFile('./examples/logo.svg', generateSvg(res)).then(() => console.log("Genereated logo.svg"));
     });
